@@ -1,1 +1,1 @@
-include ':app', ":xkutils"
+include ':app', ":xkutils", ":sf.srv", ":sf.cli"

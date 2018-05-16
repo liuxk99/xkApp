@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SharingFilesS</string>
+    <string name="action_share_files">[S]Sharing Files</string>
+</resources>
