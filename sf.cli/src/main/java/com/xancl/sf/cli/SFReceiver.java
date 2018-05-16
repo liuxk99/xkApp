@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.xancl.xkutils.XancL;
+
 
 public class SFReceiver extends BroadcastReceiver {
     private static final String TAG = SFReceiver.class.getSimpleName();
@@ -17,7 +19,7 @@ public class SFReceiver extends BroadcastReceiver {
         // an Intent broadcast.
         String a = intent.getAction();
         assert a != null;
-        if (a.equals(XancL.ACTION_SHARE_FILE)) {
+        if (a.equals(XancL.ACTION_SHARE)) {
         }
     }
 }

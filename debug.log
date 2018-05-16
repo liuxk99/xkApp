@@ -1,22 +1,11 @@
 # test command line
-	adb logcat -c; \
-	adb shell am broadcast -a 'xancl.intent.action.share_files' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' -d 'content://com.xancl.sf.srv.fileprovider/my_thumbs/1.apk'; \
-	adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
-
-	adb logcat -c; \
-	adb shell am broadcast -a 'xancl.intent.action.share_files' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' -d 'file:///storage/emulated/0/Android/data/com.xancl.sf.srv/files/1.apk'; \
-	adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
-
-
-#result
-	thomas@XancL03:~/SharingFilesS$ adb logcat -c; \
-	> adb shell am broadcast -a 'xancl.intent.action.share_files' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' -d 'content://com.xancl.sf.srv.fileprovider/my_thumbs/1.apk'; \
-	> adb logcat -v threadtime SharingFilesReceiver:V ActivityManager:V BroadcastQueue:V *:S
-	Broadcasting: Intent { act=xancl.intent.action.share_files cat=[android.intent.category.DEFAULT] dat=content://com.xancl.sf.srv.fileprovider/my_thumbs/1.apk typ=application/vnd.android.package-archive }
-	Broadcast completed: result=0
-	--------- beginning of main
-	05-15 17:41:32.767 30308 30308 D SharingFilesReceiver: Intent { act=xancl.intent.action.share_files cat=[android.intent.category.DEFAULT] dat=content://com.xancl.sf.srv.fileprovider/my_thumbs/1.apk typ=application/vnd.android.package-archive flg=0x10 cmp=com.xancl.sf.cli/.SharingFilesReceiver }
+adb logcat -c; \
+adb shell am startservice -a "xancl.intent.action.START_SERVICE" com.xancl.sf.srv/.SFService; \
+adb logcat -v threadtime -s SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
 
 adb logcat -c; \
-adb shell am startservice -a "eui.intent.action.share" com.xancl.sf.srv/.SFService; \
-adb logcat -v threadtime -s SFService:V SFReceiver:V *:S
+adb shell am broadcast -a 'xancl.intent.action.SHARE' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive'; \
+adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
+
+adb uninstall com.xancl.sf.cli
+adb uninstall com.xancl.sf.srv

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.xancl.xkutils.XancL;
 import com.xancl.xkutils.installer.Installer;
 import com.xancl.xkutils.installer.InstallerFactory;
 import com.xancl.xkutils.storage.StorageUtil;
@@ -14,11 +15,6 @@ import java.io.File;
 
 public class SFService extends Service {
     private static final String TAG = SFService.class.getSimpleName();
-    /*
-    adb -s $device shell am startservice -a "xancl.intent.action.share" com.xancl.sf.srv/.SFService
-    adb -s $device logcat -v threadtime -s SFService:V SFReceiver:V *:S
-     */
-    private static final String ACTION_SHARE = "xancl.intent.action.share";
     private Installer mInstaller = InstallerFactory.getInstance();
     private File mApkFile = null;
 
@@ -27,7 +23,7 @@ public class SFService extends Service {
         Log.i(TAG, "onStartCommand(" + intent + ", " + flags + ", " + startId + ")");
 
         String action = intent.getAction();
-        if (action != null && action.equals(ACTION_SHARE)) {
+        if (action != null && action.equals(XancL.ACTION_START_SERVICE)) {
             doAction(SFService.this);
         }
         return super.onStartCommand(intent, flags, startId);
@@ -43,15 +39,16 @@ public class SFService extends Service {
     }
 
     void doAction(Context context) {
+        Log.i(TAG, "doAction(" + context + ")");
         boolean res = genApkFile(context);
         if (res) {
-            Intent i = new Intent(XancL.ACTION_SHARE_FILE);
+            Intent i = new Intent(XancL.ACTION_SHARE);
             i.addCategory(Intent.CATEGORY_DEFAULT);
-            i.addFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES);
+            i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
 //            mInstaller.modifyShareIntent(i, context, mApkFile);
 
             Log.i(TAG, "intent: " + i);
-            sendBroadcast(i);
+            sendBroadcast(i, "xancl.permission.SHARE");
         }
     }
 

@@ -3,9 +3,9 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <permission
-        android:name="com.xancl.sf.permission.share"
+        android:name="xancl.permission.SHARE"
         android:label="Sharing Files Permission"
-        android:protectionLevel="dangerous"/>
+        android:protectionLevel="normal"/>
 
     <application
         android:allowBackup="true"
@@ -22,15 +22,15 @@
             </intent-filter>
         </activity>
 
-        <!--android:permission="com.xancl.sf.permission.share"-->
+        <!--android:permission="xancl.permission.SHARE"-->
         <receiver
             android:name=".SFReceiver"
             android:enabled="true"
             android:exported="true"
-            android:permission="com.xancl.sf.permission.share"
+            android:permission="xancl.permission.SHARE"
             >
             <intent-filter>
-                <action android:name="xancl.intent.action.share_files"/>
+                <action android:name="xancl.intent.action.SHARE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <!--<data android:scheme="content"/>-->
                 <!--<data android:scheme="file"/>-->

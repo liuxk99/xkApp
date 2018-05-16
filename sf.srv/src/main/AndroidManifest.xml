@@ -2,7 +2,7 @@
 <manifest package="com.xancl.sf.srv"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="com.xancl.sf.permission.share"/>
+    <uses-permission android:name="xancl.permission.SHARE"/>
 
     <application
         android:allowBackup="true"
