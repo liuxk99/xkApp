@@ -1,0 +1,8 @@
+thomas@XancL03:~/xkApp$ adb logcat -c; adb shell am startservice -a "xancl.intent.action.START_SERVICE" com.xancl.sf.srv/.SFService; adb logcat -v threadtime -s SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
+Starting service: Intent { act=xancl.intent.action.START_SERVICE cmp=com.xancl.sf.srv/.SFService }
+--------- beginning of main
+05-16 16:33:40.222 12219 12219 I SFService: onStartCommand(Intent { act=xancl.intent.action.START_SERVICE cmp=com.xancl.sf.srv/.SFService }, 0, 1)
+05-16 16:33:40.222 12219 12219 I SFService: doAction(com.xancl.sf.srv.SFService@88d22b0)
+05-16 16:33:40.345 12219 12219 I SFService: release apk file
+05-16 16:33:40.345 12219 12219 I SFService: intent: Intent { act=xancl.intent.action.SHARE cat=[android.intent.category.DEFAULT] flg=0x20 }
+05-16 16:33:40.346 11934 11934 D SFReceiver: onReceive(android.app.ReceiverRestrictedContext@ffd30ae, Intent { act=xancl.intent.action.SHARE cat=[android.intent.category.DEFAULT] flg=0x30 cmp=com.xancl.sf.cli/.SFReceiver })

@@ -9,3 +9,7 @@ adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQue
 
 adb uninstall com.xancl.sf.cli
 adb uninstall com.xancl.sf.srv
+
+adb logcat -c; \
+adb shell am broadcast -a 'xancl.intent.action.SHARE' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' -d 'file:///storage/emulated/0/Android/data/com.xancl.sf.srv/files/1.apk'; \
+adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S

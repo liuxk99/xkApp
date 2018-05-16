@@ -2,10 +2,10 @@
 <manifest package="com.xancl.sf.cli"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <permission
-        android:name="xancl.permission.SHARE"
-        android:label="Sharing Files Permission"
-        android:protectionLevel="normal"/>
+    <!--<permission-->
+        <!--android:name="xancl.permission.SHARE"-->
+        <!--android:label="Sharing Files Permission"-->
+        <!--android:protectionLevel="normal"/>-->
 
     <application
         android:allowBackup="true"
@@ -27,7 +27,7 @@
             android:name=".SFReceiver"
             android:enabled="true"
             android:exported="true"
-            android:permission="xancl.permission.SHARE"
+
             >
             <intent-filter>
                 <action android:name="xancl.intent.action.SHARE"/>

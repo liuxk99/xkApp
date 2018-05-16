@@ -48,7 +48,7 @@ public class SFService extends Service {
 //            mInstaller.modifyShareIntent(i, context, mApkFile);
 
             Log.i(TAG, "intent: " + i);
-            sendBroadcast(i, "xancl.permission.SHARE");
+            sendBroadcast(i);
         }
     }
 
