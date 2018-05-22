@@ -10,8 +10,10 @@ mkdir xkutils
 cd xkutils
 git clone git@github.com:liuxk99/xkutils.git ./
 ```
+# demostration:
++ Share files between apps that with customized permissons and authorities.
 
 # Devices list which passed the code.
-+ Pixel 2 API 23(Emulator)
-+ Pixel 2 API 24(Emulator)
-+ Mi 6(Phone)
++ (Emulator)Pixel 2 API 23
++ (Emulator)Pixel 2 API 24
++ (Phone)Mi 6 API 24
