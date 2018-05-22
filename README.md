@@ -11,7 +11,7 @@ cd xkutils
 git clone git@github.com:liuxk99/xkutils.git ./
 ```
 # demostration:
-+ Share files between apps that with customized permissons and authorities.
++ Share files between apps that with customized permissions and authorities.
 
 # Devices list which passed the code.
 + (Emulator)Pixel 2 API 23
