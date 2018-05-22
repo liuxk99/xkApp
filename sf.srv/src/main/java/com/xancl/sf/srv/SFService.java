@@ -47,6 +47,7 @@ public class SFService extends Service {
             i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
             i.addFlags(Intent.FLAG_DEBUG_LOG_RESOLUTION);
             mInstaller.modifyShareIntent(i, context, mApkFile);
+            i.addFlags(Intent.FLAG_FROM_BACKGROUND);
 
             Log.i(TAG, "intent: " + i);
             sendBroadcast(i);

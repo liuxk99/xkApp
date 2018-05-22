@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent i = new Intent(XancL.ACTION_SHARE);
                             i.addCategory(Intent.CATEGORY_DEFAULT);
                             mInstaller.modifyShareIntent(i, MainActivity.this, apkFile);
+                            i.addFlags(Intent.FLAG_FROM_BACKGROUND);
 
                             sendBroadcast(i);
                         }
