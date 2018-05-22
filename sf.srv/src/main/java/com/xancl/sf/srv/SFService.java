@@ -45,7 +45,8 @@ public class SFService extends Service {
             Intent i = new Intent(XancL.ACTION_SHARE);
             i.addCategory(Intent.CATEGORY_DEFAULT);
             i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-//            mInstaller.modifyShareIntent(i, context, mApkFile);
+            i.addFlags(Intent.FLAG_DEBUG_LOG_RESOLUTION);
+            mInstaller.modifyShareIntent(i, context, mApkFile);
 
             Log.i(TAG, "intent: " + i);
             sendBroadcast(i);

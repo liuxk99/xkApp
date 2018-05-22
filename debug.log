@@ -1,15 +1,15 @@
 # test command line
 adb logcat -c; \
 adb shell am startservice -a "xancl.intent.action.START_SERVICE" com.xancl.sf.srv/.SFService; \
-adb logcat -v threadtime -s SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
+adb logcat -v threadtime -s SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V IntentResolver:V *:S
 
 adb logcat -c; \
-adb shell am broadcast -a 'xancl.intent.action.SHARE' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive'; \
-adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
+adb shell am broadcast -a 'xancl.intent.action.SHARE' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' --debug-log-resolution --include-stopped-packages; \
+adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V IntentResolver:V *:S
 
 adb uninstall com.xancl.sf.cli
 adb uninstall com.xancl.sf.srv
 
 adb logcat -c; \
-adb shell am broadcast -a 'xancl.intent.action.SHARE' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' -d 'file:///storage/emulated/0/Android/data/com.xancl.sf.srv/files/1.apk'; \
-adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V *:S
+adb shell am broadcast -a 'xancl.intent.action.SHARE' -c 'android.intent.category.DEFAULT' -t 'application/vnd.android.package-archive' -d 'file:///storage/emulated/0/Android/data/com.xancl.sf.srv/files/1.apk' --debug-log-resolution --include-stopped-packages; \
+adb logcat -v threadtime SFService:V SFReceiver:V ActivityManager:V BroadcastQueue:V IntentResolver:V *:S
