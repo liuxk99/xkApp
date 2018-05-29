@@ -1,5 +1,7 @@
 package com.xancl.app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,7 +14,7 @@ import com.xancl.xkutils.storage.StorageUtil;
 
 import java.io.File;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String APK_FILE_NAME = "1.apk";
@@ -48,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             }
+
+            Button startButton = findViewById(R.id.btn_start);
+            startButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent();
+                    i.setClass(MainActivity.this, SubActivity.class);
+                    startActivity(i);
+                }
+            });
         }
 
     }

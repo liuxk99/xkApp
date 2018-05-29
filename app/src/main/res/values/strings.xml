@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">xkUtils</string>
     <string name="cmd_install_apk">Install Apk</string>
+    <string name="cmd_start_activity">Start Activity</string>
 </resources>
