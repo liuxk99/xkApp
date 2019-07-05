@@ -43,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
                             i.addCategory(Intent.CATEGORY_DEFAULT);
                             mInstaller.modifyShareIntent(i, MainActivity.this, apkFile);
                             i.addFlags(Intent.FLAG_FROM_BACKGROUND);
+                            i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
 
                             sendBroadcast(i);
+                            Log.i(TAG, "sendBroadcast(" + i + ")");
                         }
                     });
                 }

@@ -28,7 +28,7 @@
             android:name=".SFReceiver"
             android:enabled="true"
             android:exported="true"
-            android:permission="xancl.permission.SHARE"
+
             >
             <intent-filter>
                 <action android:name="xancl.intent.action.SHARE"/>
