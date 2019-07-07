@@ -4,8 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.xancl.xkutils.XancL;
+
+import static android.widget.Toast.*;
 
 
 public class SFReceiver extends BroadcastReceiver {
@@ -20,6 +23,7 @@ public class SFReceiver extends BroadcastReceiver {
         String a = intent.getAction();
         assert a != null;
         if (a.equals(XancL.ACTION_SHARE)) {
+            Toast.makeText(context, a, LENGTH_LONG).show();
         }
     }
 }

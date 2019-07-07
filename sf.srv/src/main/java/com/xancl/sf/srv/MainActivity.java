@@ -1,6 +1,7 @@
 package com.xancl.sf.srv;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
                             Intent i = new Intent(XancL.ACTION_SHARE);
                             i.addCategory(Intent.CATEGORY_DEFAULT);
                             mInstaller.modifyShareIntent(i, MainActivity.this, apkFile);
-                            i.addFlags(Intent.FLAG_FROM_BACKGROUND);
-                            i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
 
+                            i.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                i.setPackage("com.xancl.sf.cli");
+                            }
                             sendBroadcast(i);
                             Log.i(TAG, "sendBroadcast(" + i + ")");
                         }
